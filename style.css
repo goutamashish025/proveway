@@ -1,0 +1,234 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #fdfbfb, #f8f9fa);
+  color: #333;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #e45d8b;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+/* Box Container */
+.box {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 25px auto;
+  padding: 25px 20px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 420px;
+  
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.box.expanded, .box:hover .box-content {
+  border-color: #ff6b92;
+  display: block;
+}
+
+/* Header Styling */
+.box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.box-header label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.discount {
+  background-color: #ff8fa3;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  margin-left: 8px;
+}
+
+/* Discounted Price Styling */
+.price {
+  font-size: 18px; /* Adjust font size */
+  font-weight: bold;
+  color: #000; /* Black color */
+  margin: 0;
+}
+
+/* Original Price Styling */
+.original-price {
+  font-size: 14px; /* Smaller font size */
+  color: #ccc; /* Light gray */
+  text-decoration: line-through; /* Add line-through effect */
+  margin: 0;
+}
+
+.badge {
+  background-color: #ff4c7e;
+  color: white;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 0.7rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Expandable Content */
+.box-content {
+  display: none;
+  padding: 15px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 10px;
+  animation: fadeIn 0.4s ease-in-out;
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+.box:hover .box-content {
+  display: block;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.options label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.options select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 0.9rem;
+  color: #333;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.options select:focus {
+  outline: none;
+  border-color: #ff6b92;
+}
+
+/* Cart Footer */
+.cart-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.cart-footer {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #444;
+}
+.freeD {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  padding-right: 160px;
+  color: #e45d8b;
+}
+.total {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  padding: 12px 150px;
+  
+}
+
+
+button {
+  background: linear-gradient(to right, #ff6b92, #ff8fa3);
+  color: white;
+  border: none;
+  padding: 12px 150px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, transform 0.2s ease;
+  
+ 
+}
+
+button:hover {
+  background: linear-gradient(to right, #ff4c7e, #ff6b92);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .box {
+    padding: 10px 15px;
+  }
+
+  .box-header label {
+    font-size: 0.9rem;
+  }
+
+  .price {
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    
+  }
+}
+
+/* Box Content Default State */
+.box-content {
+  visibility: hidden; /* Hidden but space is reserved */
+  opacity: 0;
+  max-height: 0; /* Collapsed by default */
+  overflow: hidden;
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+  padding: 0; /* Avoid shifting */
+}
+
+/* On Hover: Expand Box Content */
+.box:hover .box-content {
+  visibility: visible;
+  opacity: 1;
+  max-height: 150px; /* Adjust this to fit content */
+  padding: 15px; /* Add padding when visible */
+}
